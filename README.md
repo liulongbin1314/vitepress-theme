@@ -14,7 +14,7 @@ import Theme from '@escook/vitepress-theme'
 export default Theme
 ```
 
-如果您想在我的主题基础之上进行扩展，例如：更改某些主题样式、添加路由守卫等，请按照如下的方式进行使用：
+如果您想在我的主题基础之上进行扩展，例如：更改某些主题样式、添加路由守卫等，请按照如下的方式改造 `.vitepress/theme/index.ts` 文件：
 
 ```ts
 import type { Theme } from 'vitepress'
