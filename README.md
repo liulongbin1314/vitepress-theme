@@ -19,7 +19,7 @@ export default Theme
 ```ts
 import type { Theme } from 'vitepress'
 // 1. 导入彬哥的主题
-import escookTheme from 'escook-vitepress-theme'
+import escookTheme from '@escook/vitepress-theme'
 // 导入自定义的样式
 import './style.css'
 
