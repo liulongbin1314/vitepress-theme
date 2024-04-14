@@ -1,0 +1,26 @@
+{
+  "name": "@escook/vitepress-theme",
+  "version": "1.0.0",
+  "description": "彬哥の VitePress 主题",
+  "main": ".vitepress/theme/index.ts",
+  "scripts": {},
+  "keywords": [
+    "vitepress",
+    "VitePress",
+    "theme",
+    "主题"
+  ],
+  "bugs": {
+    "url": "https://github.com/liulongbin1314/vitepress-theme/issues"
+  },
+  "homepage": "https://github.com/liulongbin1314/vitepress-theme/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liulongbin1314/vitepress-theme.git"
+  },
+  "author": "liulongbin",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.1.0"
+  }
+}
