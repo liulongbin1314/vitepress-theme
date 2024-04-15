@@ -4,6 +4,8 @@
 npm install @escook/vitepress-theme -S
 ```
 
+
+
 ## 使用自定义主题
 
 您如果只想单纯使用 `@escook/vitepress-theme` 这款 VitePress 主题，而且不需要基于它进行二次定制。请修改 `.vitepress/theme/index.ts` 文件，直接导入此主题并重新导出即可：
@@ -32,6 +34,37 @@ export default {
 } satisfies Theme
 ```
 
+
+
+## 使用配置文件
+
+### 启用代码块左上角的交通灯
+
+此主题提供了代码块左上角的交通灯小图标，只是默认并没有启用此功能。因为交通灯会增大代码块的高度，如果代码块较多，会导致可视范围内信息量的减少。
+
+如果您想展示代码块左上角的交通灯，可以参考如下的4个步骤，修改项目中的 `.vitepress/config.mts` 配置文件：
+
+```ts
+// 1. 导入 defineConfigWithTheme 函数
+import { defineConfigWithTheme } from 'vitepress'
+// 2. 导入需要继承的配置对象
+import escookConfig from '@escook/vitepress-theme/dist/config'
+
+export default defineConfigWithTheme({
+  // 3. 通过 extends 指定要继承的配置
+  extends: escookConfig,
+  title: 'My Awesome Project',
+  description: 'A VitePress Site',
+  themeConfig: {
+    // 4. 通过此配置项，启用代码块左上角的交通灯
+    trafficLights: true,
+    // 省略其它配置项...
+  }
+})
+```
+
+
+
 ## VS Code 插件推荐
 
 - 插件推荐：
@@ -43,6 +76,8 @@ export default {
 - 我的博客：[https://www.escook.cn/](https://www.escook.cn/)
 
 - 哔哩哔哩：https://space.bilibili.com/385854392
+
+
 
 ## LICENSE
 
