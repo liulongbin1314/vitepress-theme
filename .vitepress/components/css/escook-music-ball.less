@@ -1,0 +1,162 @@
+.el-slider__button {
+  --el-slider-button-size: 15px;
+}
+.dark {
+  .escook-music-ball {
+    background-color: #222;
+    .escook-play-pause {
+      &:hover {
+        background-color: #3d3d3d;
+      }
+    }
+
+    .el-slider {
+      --el-border-color-light: #b6b6b6;
+      --el-slider-main-bg-color: #b6b6b6;
+      --el-slider-height: 4px;
+
+      .el-slider__runway {
+        background-color: #5f5f5f;
+      }
+
+      .el-slider__button {
+        --el-color-white: #5f5f5f;
+        --el-slider-main-bg-color: #b6b6b6;
+      }
+    }
+
+    .el-progress {
+      .el-progress-circle__track {
+        stroke: #333;
+      }
+      .el-progress-circle__path {
+        stroke: #722124;
+      }
+    }
+  }
+}
+.escook-music-ball {
+  background-color: #d3d3d3;
+  cursor: pointer;
+  width: 50px;
+  // width: 300px;
+  height: 50px;
+  overflow: hidden;
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  z-index: 99;
+  border-radius: 28px;
+  padding: 0 20px 0 5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: width 0.3s ease;
+
+  .escook-music-ball__inner {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &:hover {
+    width: 300px;
+    transition: width 0.3s ease;
+  }
+
+  .iconfont {
+    font-size: 20px;
+  }
+
+  .icon-pause {
+    font-size: 26px;
+  }
+
+  .el-slider {
+    --el-slider-height: 4px;
+    --el-slider-main-bg-color: #595959;
+    --el-color-white: #c1c2c3;
+
+    .el-slider__runway {
+      background-color: #c1c2c3;
+    }
+
+    .el-slider__button {
+      --el-slider-button-size: 12px;
+      position: relative;
+      top: -1px;
+    }
+  }
+
+  .icon-ic_volume_up,
+  .icon-ic_volume_off {
+    margin-left: 5px;
+  }
+
+  .escook-play-pause {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+
+    &:hover {
+      background-color: rgb(188, 188, 188);
+      transition: all 0.5s ease;
+    }
+  }
+
+  .escook-time {
+    padding: 0 10px;
+    font-size: 12px;
+    width: 78px;
+    white-space: nowrap;
+  }
+
+  .escook-duration {
+    padding: 0 10px 0 3px;
+    flex: 1;
+  }
+
+  .escook-volume {
+    width: 30px;
+    display: flex;
+    align-items: center;
+    transition: width 0.3s ease;
+
+    .el-slider {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    img {
+      margin-left: 5px;
+    }
+    &:hover {
+      width: 120px;
+      transition: width 0.3s ease;
+
+      .el-slider {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    }
+  }
+
+  .el-progress {
+    position: absolute;
+    left: 0;
+
+    .el-progress-circle__track {
+      stroke: #dfdfdf;
+    }
+
+    .el-progress-circle__path {
+      stroke: #409eff;
+    }
+  }
+}

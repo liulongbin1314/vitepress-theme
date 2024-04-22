@@ -1,10 +1,12 @@
 {
   "name": "@escook/vitepress-theme",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "彬哥の VitePress 主题",
   "main": "dist/theme/index.js",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "vue": "vue-tsc"
+  },
   "keywords": [
     "vitepress",
     "VitePress",
@@ -22,6 +24,11 @@
   "author": "liulongbin",
   "license": "MIT",
   "devDependencies": {
-    "vitepress": "^1.1.0"
+    "typescript": "^5.4.5",
+    "vitepress": "^1.1.0",
+    "vue-tsc": "^2.0.13"
+  },
+  "dependencies": {
+    "element-plus": "^2.6.3"
   }
 }

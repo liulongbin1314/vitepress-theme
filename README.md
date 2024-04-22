@@ -1,7 +1,7 @@
 ## 安装自定义主题
 
 ```bash
-npm install @escook/vitepress-theme -S
+npm install @escook/vitepress-theme
 ```
 
 
@@ -42,7 +42,7 @@ export default {
 
 此主题提供了代码块左上角的交通灯小图标，只是默认并没有启用此功能。因为交通灯会增大代码块的高度，如果代码块较多，会导致可视范围内信息量的减少。
 
-如果您想展示代码块左上角的交通灯，可以参考如下的4个步骤，修改项目中的 `.vitepress/config.mts` 配置文件：
+如果您想展示代码块左上角的交通灯，可以参考如下的 4 个步骤，修改项目中的 `.vitepress/config.mts` 配置文件：
 
 ```ts
 // 1. 导入 defineConfigWithTheme 函数
@@ -57,11 +57,48 @@ export default defineConfigWithTheme({
   description: 'A VitePress Site',
   themeConfig: {
     // 4. 通过此配置项，启用代码块左上角的交通灯
-    trafficLights: true,
+    trafficLights: true
     // 省略其它配置项...
   }
 })
 ```
+
+
+
+### 启用背景音乐的小组件
+
+如果您想展示代码块左上角的交通灯，可以参考如下的 4 个步骤，修改项目中的 `.vitepress/config.mts` 配置文件：
+
+```ts
+// 1. 导入 defineConfigWithTheme 函数
+import { defineConfigWithTheme } from 'vitepress'
+// 2. 导入需要继承的配置对象
+import escookConfig from '@escook/vitepress-theme/dist/config'
+
+export default defineConfigWithTheme({
+  // 3. 通过 extends 指定要继承的配置
+  extends: escookConfig,
+  title: 'My Awesome Project',
+  description: 'A VitePress Site',
+  themeConfig: {
+    // 4. 通过此配置项，启用背景音乐的小组件
+    musicBall: {
+      src: 'https://img3.tukuppt.com/newpreview_music/09/01/62/5c89fd22dea6948307.mp3'
+    },
+    // 省略其它配置项...
+  }
+})
+```
+
+其中，musicBall 所有可用的配置项如下：
+
+| 配置项名称 | 类型    | 默认值 | 必选 | 说明                                            |
+| ---------- | ------- | ------ | ---- | ----------------------------------------------- |
+| src        | string  | ""     | 是   | 背景音乐的 src 地址                             |
+| loop       | boolean | true   | 否   | 是否循环播放                                    |
+| autoplay   | boolean | false  | 否   | 是否自动播放                                    |
+| enable     | boolean | true   | 否   | 是否启用 musicBall 小组件                       |
+| visible    | boolean | true   | 否   | 启用 musicBall 小组件后，小组件在页面中是否可见 |
 
 
 

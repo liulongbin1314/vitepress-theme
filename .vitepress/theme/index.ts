@@ -2,10 +2,12 @@ import type { Theme } from 'vitepress'
 export type { EscookThemeConfig } from '../config'
 import type { EscookThemeConfig } from '../config'
 import DefaultTheme from 'vitepress/theme'
-import './custom.css'
+// @ts-ignore
+import EscookLayout from '../components/EscookLayout.vue'
+import './style/custom.css'
 
 export default {
-  extends: DefaultTheme,
+  extends: { ...DefaultTheme, Layout: EscookLayout },
   enhanceApp({ app, siteData }) {
     // 获取主题配置
     const themeConfig = siteData.value.themeConfig as EscookThemeConfig
@@ -14,7 +16,7 @@ export default {
     // 按需加载交通灯的样式表
     if (trafficLights) {
       // @ts-expect-error
-      import('./trafficLights.css')
+      import('./style/trafficLights.css')
     }
   }
 } satisfies Theme
