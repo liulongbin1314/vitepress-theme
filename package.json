@@ -5,7 +5,7 @@
   "main": "dist/theme/index.js",
   "type": "module",
   "scripts": {
-    "vue": "vue-tsc"
+    "pkg": "rollup -c rollup.config.js"
   },
   "keywords": [
     "vitepress",
@@ -24,8 +24,21 @@
   "author": "liulongbin",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/plugin-transform-runtime": "^7.24.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "postcss": "^8.4.38",
+    "rollup": "^4.16.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "tslib": "^2.6.2",
     "typescript": "^5.4.5",
     "vitepress": "^1.1.0",
+    "vue-template-compiler": "^2.7.16",
     "vue-tsc": "^2.0.13"
   },
   "dependencies": {
