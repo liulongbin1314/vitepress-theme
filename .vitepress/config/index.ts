@@ -2,7 +2,6 @@ import type { UserConfig, DefaultTheme } from 'vitepress'
 
 // 自定义主题的配置项，仅限于 themeConfig 下的选项
 export interface EscookThemeConfig extends DefaultTheme.Config {
-  trafficLights?: boolean
   musicBall?: {
     enable?: boolean
     visible?: boolean
@@ -13,9 +12,8 @@ export interface EscookThemeConfig extends DefaultTheme.Config {
 }
 
 // 本主题默认提供的配置项
-const defaultConfig: UserConfig<EscookThemeConfig> = {
+const escookConfig: UserConfig<EscookThemeConfig> = {
   themeConfig: {
-    trafficLights: false,
     outline: [2, 3],
     musicBall: {
       src: '',
@@ -30,9 +28,9 @@ const defaultConfig: UserConfig<EscookThemeConfig> = {
   },
   vite: {
     ssr: {
-      noExternal: ['element-plus']
+      noExternal: ['element-plus', '@escook/vitepress-theme']
     }
   }
 }
 
-export default defaultConfig
+export default escookConfig
