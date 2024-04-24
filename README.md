@@ -22,9 +22,10 @@ import '@escook/vitepress-theme/style.css'
 export default Theme
 ```
 
-如果您想在我的主题基础之上进行扩展，例如：更改某些主题样式、添加路由守卫等，请按照如下的方式改造 `.vitepress/theme/index.ts` 文件：
+如果您想在我的主题基础之上进行扩展，例如：更改某些主题样式、添加路由守卫、使用布局插槽等，请按照如下的方式改造 `.vitepress/theme/index.ts` 文件：
 
 ```ts
+import { h } from 'vue'
 import type { Theme } from 'vitepress'
 // 1. 导入彬哥的主题
 import escookTheme from '@escook/vitepress-theme'
@@ -36,6 +37,11 @@ import './style.css'
 export default {
   // 3. 指定要继承的主题，并基于此主题进行二次扩展
   extends: escookTheme,
+  Layout: () => {
+    return h(escookTheme.Layout, null, {
+      // https://vitepress.dev/guide/extending-default-theme#layout-slots
+    })
+  },
   enhanceApp({ app, router, siteData }) {
     // 扩展自定义的功能...
   }
