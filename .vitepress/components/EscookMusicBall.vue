@@ -28,6 +28,9 @@ const percent = computed({
   },
   set(value) {
     nextDuration.value = (duration.value * value) / 100
+    if (!isPlay.value && audioRef.value) {
+      audioRef.value.currentTime = nextDuration.value
+    }
   }
 })
 
@@ -94,8 +97,8 @@ const onDurationChange = () => {
 function secondsToHms(d: number) {
   d = Number(d)
 
-  var m = Math.floor((d % 3600) / 60)
-  var s = Math.floor((d % 3600) % 60)
+  var m = Math.floor((d % 3600) / 60) || 0
+  var s = Math.floor((d % 3600) % 60) || 0
 
   return `${m}:${s.toString().padStart(2, '0')}`
 }

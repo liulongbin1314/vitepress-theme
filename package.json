@@ -1,7 +1,10 @@
 {
   "name": "@escook/vitepress-theme",
+  "displayName": "@escook/vitepress-theme",
   "private": false,
-  "version": "1.2.5",
+  "version": "1.2.6",
+  "license": "MIT",
+  "description": "一款面向程序员的漂亮的 VitePress 主题 →_→ @escook/vitepress-theme",
   "type": "module",
   "files": [
     "dist"

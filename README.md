@@ -1,7 +1,9 @@
+一款面向程序员的漂亮的 [VitePress](https://vitepress.dev/zh/) 主题。
+
 ## 安装自定义主题
 
 ```bash
-npm install @escook/vitepress-theme
+npm install @escook/vitepress-theme@latest
 ```
 
 
