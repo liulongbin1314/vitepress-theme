@@ -1,9 +1,11 @@
 import { h, defineComponent } from 'vue'
+import type { RenderFunction } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import { useData, defineClientComponent } from 'vitepress'
 
-export default defineComponent({
+export default defineComponent<{}>({
   setup(_, { slots }) {
+    const slt = slots as { 'home-features-before': RenderFunction | undefined }
     const { Layout } = DefaultTheme
     const { site } = useData()
     const themeConfig = site.value.themeConfig
@@ -22,6 +24,6 @@ export default defineComponent({
     })
 
     // 渲染组件、dom，都要使用 h 函数哦
-    return () => [h(Layout, null, { ...slots, 'home-features-before': h(ClientHomeFeatureBefore) }), flag && h(ClientMusicBall)]
+    return () => [h(Layout, null, { ...slots, 'home-features-before': () => [h(ClientHomeFeatureBefore), slt['home-features-before']?.()] }), flag && h(ClientMusicBall)]
   }
 })
