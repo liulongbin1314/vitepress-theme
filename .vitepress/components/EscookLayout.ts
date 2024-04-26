@@ -13,7 +13,7 @@ export default defineComponent({
       return import('./EscookMusicBall.vue')
     }, [
       {
-        style: { display: themeConfig.musicBall.visible ? '' : 'none' }
+        style: { display: themeConfig.musicBall && themeConfig.musicBall.visible ? '' : 'none' }
       }
     ])
 
