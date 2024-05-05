@@ -79,13 +79,39 @@ export default defineConfigWithTheme({
 
 其中，musicBall 所有可用的配置项如下：
 
-| 配置项名称 | 类型    | 默认值 | 必选 | 说明                                                         |
-| ---------- | ------- | ------ | ---- | ------------------------------------------------------------ |
-| src        | string  | ""     | 是   | 背景音乐的 src 地址（如果没有指定音源，则默认不展示 musicBall） |
-| loop       | boolean | true   | 否   | 是否循环播放                                                 |
-| autoplay   | boolean | false  | 否   | 是否自动播放                                                 |
-| enable     | boolean | true   | 否   | 是否启用 musicBall 小组件                                    |
-| visible    | boolean | true   | 否   | 启用 musicBall 小组件后，小组件在页面中是否可见              |
+| 配置项名称 | 类型        | 默认值    | 必选 | 说明                                                         |
+| ---------- | ----------- | --------- | ---- | ------------------------------------------------------------ |
+| src        | string      | ""        | 否   | 背景音乐的 src 地址。<br />注意：<br />1. 如果没有指定音源，则默认不展示 musicBall<br />2. src 的优先级高于 list，同时指定 src 和 list 时仅 src 属性生效 |
+| loop       | boolean     | true      | 否   | 是否循环播放                                                 |
+| autoplay   | boolean     | false     | 否   | 是否自动播放                                                 |
+| enable     | boolean     | true      | 否   | 是否启用 musicBall 小组件                                    |
+| visible    | boolean     | true      | 否   | 启用 musicBall 小组件后，小组件在页面中是否可见              |
+| list       | MusicItem[] | undefined | 否   | 音乐列表项的数组。<br />注意：<br />1. 如果同时指定了 src 和 list，则 list 不生效<br />2. 如果 list 中仅有一个 MusicItem，则会以单曲的形式播放，不会展示音乐列表<br />3. MusicItem 的类型定义是 `{ name: string; src: string }` |
+
+
+
+### 启用鼠标点击的 confetti 效果
+
+此主题默认已启用 confetti 点击效果。如果您想关闭此效果，请参考如下的方式修改项目中的 `.vitepress/config.mts` 配置文件：
+
+```ts
+// 1. 导入 defineConfigWithTheme 函数
+import { defineConfigWithTheme } from 'vitepress'
+// 2. 导入需要继承的配置对象
+import escookConfig from '@escook/vitepress-theme/config'
+
+export default defineConfigWithTheme({
+  // 3. 通过 extends 指定要继承的配置
+  extends: escookConfig,
+  title: 'My Awesome Project',
+  description: 'A VitePress Site',
+  themeConfig: {
+    // 4. 通过此配置项，关闭鼠标点击的 confetti 效果
+    confetti: false
+    // 省略其它配置项...
+  }
+})
+```
 
 
 

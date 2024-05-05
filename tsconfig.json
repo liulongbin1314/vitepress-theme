@@ -10,18 +10,19 @@
     ],
     "skipLibCheck": true,
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    // 打包项目时使用 Bundler 选项
+    "moduleResolution": "Bundler",
     // 导入模块时是否允许包含 .ts 的扩展名
     "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     // 不生成任何文件（例如 .js 和 .d.ts）
-    "noEmit": true,
+    // "noEmit": true,
     "jsx": "preserve",
     "declaration": true,
     "declarationDir": "./types",
     // 仅生成 .d.ts
-    // "emitDeclarationOnly": false,
+    "emitDeclarationOnly": true,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
