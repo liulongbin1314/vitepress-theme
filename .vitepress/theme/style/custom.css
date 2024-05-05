@@ -150,12 +150,6 @@
 .vp-doc .vp-code-group .tabs {
   border-top: 6px solid #d4eaf7;
 }
-.dark {
-  /* 美化整个滚动条 */
-  /* 美化滚动条轨道 */
-  /* 美化滚动条的滑块 */
-  /* 当滑块悬停或活动时的样式 */
-}
 .dark .VPHome .image-bg {
   animation: filter_blur 1.8s ease-in infinite alternate-reverse;
   filter: blur(var(--blur));

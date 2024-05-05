@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1713532145677') format('truetype');
+  src: url('iconfont.ttf?t=1714795130152') format('truetype');
 }
 
 .iconfont {
@@ -25,5 +25,9 @@
 
 .icon-pause:before {
   content: "\e98f";
+}
+
+.icon-music_list:before {
+  content: "\e709";
 }
 

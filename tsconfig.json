@@ -19,6 +19,7 @@
     "noEmit": true,
     "jsx": "preserve",
     "declaration": true,
+    "declarationDir": "./types",
     // 仅生成 .d.ts
     // "emitDeclarationOnly": false,
     /* Linting */

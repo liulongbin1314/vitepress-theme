@@ -3,6 +3,9 @@
 }
 .dark {
   .escook-music-ball {
+    --music-list-sep-color: #1b1b1f;
+    --music-list-bgcolor: #212223;
+    --music-list-bdcolor: #1b1b1f;
     background-color: #222;
     .escook-play-pause {
       &:hover {
@@ -30,16 +33,20 @@
         stroke: #333;
       }
       .el-progress-circle__path {
-        stroke: #722124;
+        stroke: #913654;
       }
     }
   }
 }
 .escook-music-ball {
-  background-color: #d3d3d3;
+  --music-list-sep-color: #ece9e9;
+  --music-list-bgcolor: #f6f6f7;
+  --music-list-bdcolor: #efefef;
+
+  background-color: #efefef;
   cursor: pointer;
   width: 50px;
-  // width: 300px;
+  // width: 330px;
   height: 50px;
   overflow: hidden;
   position: fixed;
@@ -53,17 +60,23 @@
   align-items: center;
   justify-content: space-between;
   transition: width 0.3s ease;
+  transition-delay: 0.1s;
+
+  &.active {
+    overflow: inherit;
+  }
 
   .escook-music-ball__inner {
-    width: 300px;
+    width: 330px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   &:hover {
-    width: 300px;
+    width: 330px;
     transition: width 0.3s ease;
+    transition-delay: 0.5s;
   }
 
   .iconfont {
@@ -127,10 +140,12 @@
     display: flex;
     align-items: center;
     transition: width 0.3s ease;
+    transition-delay: 0.3s;
 
     .el-slider {
       opacity: 0;
       transition: opacity 0.3s ease;
+      transition-delay: 0.3s;
     }
 
     img {
@@ -139,10 +154,68 @@
     &:hover {
       width: 120px;
       transition: width 0.3s ease;
+      transition-delay: 0.3s;
 
       .el-slider {
         opacity: 1;
         transition: opacity 0.3s ease;
+      }
+    }
+  }
+
+  .escook-music-list-button {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+  }
+
+  .escook-music-list {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    padding: 15px 5px 50px;
+    left: 0;
+    bottom: 0;
+    z-index: -9;
+    border-radius: 24px;
+    background-color: var(--music-list-bgcolor);
+    border: 1px solid var(--music-list-bdcolor);
+
+    .escook-music-list-sep {
+      border-bottom: 1px solid var(--music-list-sep-color);
+      margin: 5px 0;
+    }
+
+    .escook-music-list-item {
+      font-size: 12px;
+      padding-left: 20px;
+      padding-right: 20px;
+      line-height: 24px;
+      text-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+
+      &:hover {
+        color: #f16a97;
+      }
+
+      .image-live {
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        left: 3px;
+        bottom: 6px;
+      }
+
+      &.active {
+        color: #fb9cbc;
+
+        &:hover {
+          color: #f16a97;
+        }
       }
     }
   }
@@ -156,7 +229,7 @@
     }
 
     .el-progress-circle__path {
-      stroke: #409eff;
+      stroke: #f16a97;
     }
   }
 }

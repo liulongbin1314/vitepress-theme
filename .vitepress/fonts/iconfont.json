@@ -32,6 +32,13 @@
       "font_class": "pause",
       "unicode": "e98f",
       "unicode_decimal": 59791
+    },
+    {
+      "icon_id": "12241145",
+      "name": "music_list",
+      "font_class": "music_list",
+      "unicode": "e709",
+      "unicode_decimal": 59145
     }
   ]
 }

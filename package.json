@@ -40,10 +40,12 @@
     "docs:preview": "vitepress preview doc"
   },
   "dependencies": {
+    "canvas-confetti": "^1.9.3",
     "element-plus": "^2.7.1",
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.6.4",
     "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.2.2",

@@ -2,6 +2,9 @@
   --el-slider-button-size: 15px;
 }
 .dark .escook-music-ball {
+  --music-list-sep-color: #1b1b1f;
+  --music-list-bgcolor: #212223;
+  --music-list-bdcolor: #1b1b1f;
   background-color: #222;
 }
 .dark .escook-music-ball .escook-play-pause:hover {
@@ -23,10 +26,13 @@
   stroke: #333;
 }
 .dark .escook-music-ball .el-progress .el-progress-circle__path {
-  stroke: #722124;
+  stroke: #913654;
 }
 .escook-music-ball {
-  background-color: #d3d3d3;
+  --music-list-sep-color: #ece9e9;
+  --music-list-bgcolor: #f6f6f7;
+  --music-list-bdcolor: #efefef;
+  background-color: #efefef;
   cursor: pointer;
   width: 50px;
   height: 50px;
@@ -42,16 +48,21 @@
   align-items: center;
   justify-content: space-between;
   transition: width 0.3s ease;
+  transition-delay: 0.1s;
+}
+.escook-music-ball.active {
+  overflow: inherit;
 }
 .escook-music-ball .escook-music-ball__inner {
-  width: 300px;
+  width: 330px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .escook-music-ball:hover {
-  width: 300px;
+  width: 330px;
   transition: width 0.3s ease;
+  transition-delay: 0.5s;
 }
 .escook-music-ball .iconfont {
   font-size: 20px;
@@ -104,10 +115,12 @@
   display: flex;
   align-items: center;
   transition: width 0.3s ease;
+  transition-delay: 0.3s;
 }
 .escook-music-ball .escook-volume .el-slider {
   opacity: 0;
   transition: opacity 0.3s ease;
+  transition-delay: 0.3s;
 }
 .escook-music-ball .escook-volume img {
   margin-left: 5px;
@@ -115,10 +128,60 @@
 .escook-music-ball .escook-volume:hover {
   width: 120px;
   transition: width 0.3s ease;
+  transition-delay: 0.3s;
 }
 .escook-music-ball .escook-volume:hover .el-slider {
   opacity: 1;
   transition: opacity 0.3s ease;
+}
+.escook-music-ball .escook-music-list-button {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+}
+.escook-music-ball .escook-music-list {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  padding: 15px 5px 50px;
+  left: 0;
+  bottom: 0;
+  z-index: -9;
+  border-radius: 24px;
+  background-color: var(--music-list-bgcolor);
+  border: 1px solid var(--music-list-bdcolor);
+}
+.escook-music-ball .escook-music-list .escook-music-list-sep {
+  border-bottom: 1px solid var(--music-list-sep-color);
+  margin: 5px 0;
+}
+.escook-music-ball .escook-music-list .escook-music-list-item {
+  font-size: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 24px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+.escook-music-ball .escook-music-list .escook-music-list-item:hover {
+  color: #f16a97;
+}
+.escook-music-ball .escook-music-list .escook-music-list-item .image-live {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: 3px;
+  bottom: 6px;
+}
+.escook-music-ball .escook-music-list .escook-music-list-item.active {
+  color: #fb9cbc;
+}
+.escook-music-ball .escook-music-list .escook-music-list-item.active:hover {
+  color: #f16a97;
 }
 .escook-music-ball .el-progress {
   position: absolute;
@@ -128,5 +191,5 @@
   stroke: #dfdfdf;
 }
 .escook-music-ball .el-progress .el-progress-circle__path {
-  stroke: #409eff;
+  stroke: #f16a97;
 }
