@@ -1,6 +1,6 @@
-一款面向程序员的漂亮的 [VitePress](https://vitepress.dev/zh/) 主题。
+A beautiful [VitePress](https://vitepress.dev/zh/) theme for programmers. | [中文文档](https://www.escook.cn/index.php/2024/05/06/escook-vitepress-theme-doc/)
 
-## 安装自定义主题
+## Installation
 
 ```bash
 npm install @escook/vitepress-theme@latest
@@ -8,34 +8,34 @@ npm install @escook/vitepress-theme@latest
 
 
 
-## 使用自定义主题
+## Usage
 
-您如果只想单纯使用 `@escook/vitepress-theme` 这款 VitePress 主题，而且不需要基于它进行二次定制。请修改 `.vitepress/theme/index.ts` 文件，按照如下 3 个步骤，导入此主题并重新导出即可：
+If you only want to use the VitePress theme of `@escook/vitepress-theme` without the need for secondary customization based on it. Please modify the file `.vitepress/theme/index.ts` and follow the following 3 steps to import this theme and re export it:
 
 ```ts
-// 1. 导入 vitepress 主题
+// 1. import vitepress theme
 import Theme from '@escook/vitepress-theme'
-// 2. 导入配套的 CSS 样式（此步骤不能省略）
+// 2. import matching CSS styles (this step cannot be omitted)
 import '@escook/vitepress-theme/style.css'
 
-// 3. 把“导入”的主题“默认导出”即可
+// 3. simply set the theme of "import" to "export default"
 export default Theme
 ```
 
-如果您想在我的主题基础之上进行扩展，例如：更改某些主题样式、添加路由守卫、使用布局插槽等，请按照如下的方式改造 `.vitepress/theme/index.ts` 文件：
+If you want to expand on the basis of my theme, such as changing certain theme styles, adding routing guards, using layout slots, etc., please modify the `.vitepress/theme/index.ts` file as follows:
 
 ```ts
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
-// 1. 导入彬哥的主题
+// 1. import vitepress theme
 import escookTheme from '@escook/vitepress-theme'
-// 2. 导入配套的 CSS 样式（此步骤不能省略）
+// 2. import matching CSS styles (this step cannot be omitted)
 import '@escook/vitepress-theme/style.css'
-// 导入您的自定义的样式
+// import your custom styles
 import './style.css'
 
 export default {
-  // 3. 指定要继承的主题，并基于此主题进行二次扩展
+  // 3. specify the theme to inherit and perform secondary extensions based on this theme
   extends: escookTheme,
   Layout: () => {
     return h(escookTheme.Layout, null, {
@@ -43,89 +43,89 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
-    // 扩展自定义的功能...
+    // expand custom features...
   }
 } satisfies Theme
 ```
 
 
 
-## 使用配置文件
+## Configuration
 
-### 启用背景音乐的小组件
+### Enable background music widgets
 
-如果您想为自己的文档启用背景音乐的小组件，可以参考如下的 4 个步骤，修改项目中的 `.vitepress/config.mts` 配置文件：
+If you want to enable background music widgets for your documents, you can refer to the following 4 steps to modify the `.vitepress/config.mts` configuration file in the project:
 
 ```ts
-// 1. 导入 defineConfigWithTheme 函数
+// 1. import the defineConfigWithTheme function
 import { defineConfigWithTheme } from 'vitepress'
-// 2. 导入需要继承的配置对象
+// 2. import configuration objects that need to be inherited
 import escookConfig from '@escook/vitepress-theme/config'
 
 export default defineConfigWithTheme({
-  // 3. 通过 extends 指定要继承的配置
+  // 3. specify the configuration to inherit via extended
   extends: escookConfig,
   title: 'My Awesome Project',
   description: 'A VitePress Site',
   themeConfig: {
-    // 4. 通过此配置项，启用背景音乐的小组件
+    // 4. enable background music widgets through this configuration item
     musicBall: {
       src: 'https://img3.tukuppt.com/newpreview_music/09/01/62/5c89fd22dea6948307.mp3'
     },
-    // 省略其它配置项...
+    // omit other configuration items...
   }
 })
 ```
 
-其中，musicBall 所有可用的配置项如下：
+Among them, all available configuration items for musicBall are as follows:
 
-| 配置项名称 | 类型        | 默认值    | 必选 | 说明                                                         |
-| ---------- | ----------- | --------- | ---- | ------------------------------------------------------------ |
-| src        | string      | ""        | 否   | 背景音乐的 src 地址。<br />注意：<br />1. 如果没有指定音源，则默认不展示 musicBall<br />2. src 的优先级高于 list，同时指定 src 和 list 时仅 src 属性生效 |
-| loop       | boolean     | true      | 否   | 是否循环播放                                                 |
-| autoplay   | boolean     | false     | 否   | 是否自动播放                                                 |
-| enable     | boolean     | true      | 否   | 是否启用 musicBall 小组件                                    |
-| visible    | boolean     | true      | 否   | 启用 musicBall 小组件后，小组件在页面中是否可见              |
-| list       | MusicItem[] | undefined | 否   | 音乐列表项的数组。<br />注意：<br />1. 如果同时指定了 src 和 list，则 list 不生效<br />2. 如果 list 中仅有一个 MusicItem，则会以单曲的形式播放，不会展示音乐列表<br />3. MusicItem 的类型定义是 `{ name: string; src: string }` |
+| config   | type        | default   | required | description                                                  |
+| -------- | ----------- | --------- | -------- | ------------------------------------------------------------ |
+| src      | string      | ""        | No       | The src address of the background music.<br/>attention:<br/>1. If no audio source is specified, musicBall will not be displayed by default<br/>2. The priority of src is higher than that of list, and only the src attribute takes effect when both src and list are specified simultaneously |
+| loop     | boolean     | true      | No       | Whether or not to play on a loop                             |
+| autoplay | boolean     | false     | No       | Whether or not to play automatically                         |
+| enable   | boolean     | true      | No       | Whether to enable the musicBall widget                       |
+| visible  | boolean     | true      | No       | When the musicBall widget is enabled, whether the widget is visible in the page |
+| list     | MusicItem[] | undefined | No       | An array of music list items.<br/>Attention:<br/>1. If both src and list are specified, the list will not take effect<br/>2. If there is only one MusicItem in the list, it will be played as a single and the music list will not be displayed<br/>3. The type definition of MusicItem is `{name: string; src: string}` |
 
 
 
-### 启用鼠标点击的 confetti 效果
+### Enable Confetti effect with mouse click
 
-此主题默认已启用 confetti 点击效果。如果您想关闭此效果，请参考如下的方式修改项目中的 `.vitepress/config.mts` 配置文件：
+This theme has the Confetti click effect enabled by default. If you want to turn off this effect, please refer to the following method to modify the `.vitepress/config.mts` configuration file in the project:
 
 ```ts
-// 1. 导入 defineConfigWithTheme 函数
+// 1. import the defineConfigWithTheme function
 import { defineConfigWithTheme } from 'vitepress'
-// 2. 导入需要继承的配置对象
+// 2. import configuration objects that need to be inherited
 import escookConfig from '@escook/vitepress-theme/config'
 
 export default defineConfigWithTheme({
-  // 3. 通过 extends 指定要继承的配置
+  // 3. specify the configuration to inherit via extended
   extends: escookConfig,
   title: 'My Awesome Project',
   description: 'A VitePress Site',
   themeConfig: {
-    // 4. 通过此配置项，关闭鼠标点击的 confetti 效果
+    // 4. through this configuration item, turn off the confetti effect of mouse clicks
     confetti: false
-    // 省略其它配置项...
+    // omit other configuration items...
   }
 })
 ```
 
 
 
-## VS Code 插件推荐
+## VSCode plugin recommendation
 
-- 插件推荐：
+- plugin recommendation：
 
-  - [escook-theme](https://marketplace.visualstudio.com/items?itemName=liulongbin1314.escook-theme) VS Code 主题插件
+  - [escook-theme](https://marketplace.visualstudio.com/items?itemName=liulongbin1314.escook-theme) VSCode theme plugin
 
-  - [escook-translate](https://marketplace.visualstudio.com/items?itemName=liulongbin1314.escook-translate) 单词翻译的 VS Code 插件
+  - [escook-translate](https://marketplace.visualstudio.com/items?itemName=liulongbin1314.escook-translate) VSCode plugin for word translation
 
-- 我的博客：[https://www.escook.cn/](https://www.escook.cn/)
+- my blog: [https://www.escook.cn/](https://www.escook.cn/)
 
-- 哔哩哔哩：https://space.bilibili.com/385854392
+- my bilibili: https://space.bilibili.com/385854392
 
 
 
